@@ -1,0 +1,12 @@
+baseURL = "https://www.merrysprout.com"
+languageCode = "en-us"
+title = "Merry Sprout"
+googleAnalytics = "UA-164308157-1"
+disqusShortname = "merrysprout"
+
+[params]
+logo = "banner/merrysprout-logo.png"
+copyright = "www.merrysprout.com"
+tagline = "Inspiring roboticist"
+banners="/content/banner/"
+

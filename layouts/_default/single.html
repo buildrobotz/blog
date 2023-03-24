@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ if eq .Params.add3js true }}
+{{ partial "threejs_includes" . }}
+{{ end }}
+<div class="row blog-content">
+    <div class="col-md-12 col-sm-6">
+        <h2>{{ .Title }}</h2><small class="text-muted">{{ .ReadingTime }} mins</small>
+    </div>
+</div>
+
+{{ if ne .Title "About" }} 
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        <img src="/banner/{{ .Params.banner }}" class="img-fluid" alt="{{ .Params.banner }}"> <hr>        
+    </div>
+</div>
+{{ end }}
+<div class="row blog-content">
+    <div class="col-md-12 col-sm-6">
+        {{ .Content }}
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        {{ partial "social" . }}
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        {{ template "_internal/disqus.html" . }}
+    </div>
+</div>
+
+{{ end }}

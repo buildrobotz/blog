@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+    <head>
+
+        
+        
+
+    </head>
+
+    <body> 
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-164308157-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+        <div class="header" id="page_menu" >
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/"> <img src="/banner/merrysprout-logo.png" style="width:50px;" />merry sprout</a>
+    <span class="navbar-text">
+      Inspiring roboticist
+    </span>
+
+    
+    <div class="navbar-nav ml-auto">
+      <a class="navbar-text " href="/about/about">About</a>
+    </div>
+  </nav>    
+</div> <br>
+
+        <div class="container" id="frame">
+
+            
+
+<div class="row blog-content">
+    <div class="col-md-12 col-sm-6">
+        <h2>ROS/OpenCV Stereo Calibration yaml files</h2><small class="text-muted">8 mins</small>
+    </div>
+</div>
+
+ 
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        <img src="/banner/ros_stereo_calibration_yaml.jpg" class="img-fluid" alt="ros_stereo_calibration_yaml.jpg"> <hr>        
+    </div>
+</div>
+
+<div class="row blog-content">
+    <div class="col-md-12 col-sm-6">
+        <p>For those of you who have done stereo calibration in the past (a few years ago), will remember it was not easy. Then came the famous <a href="http://www.vision.caltech.edu/bouguetj/calib_doc/">camera calibration toolbox for Matlab</a> developed by Bouguet. It made things a lot easier. Then OpenCV implemented <a href="https://docs.opencv.org/3.4/d4/d94/tutorial_camera_calibration.html">these methods</a> in C++ and that added even more control. ROS took it the next level and made the calibration process a lot easier and interactive. I really like the feature where they tell you in which way you need to move the calibration target to get a better calibration.
+<figure><img src="http://wiki.ros.org/camera_calibration/Tutorials/StereoCalibration?action=AttachFile&amp;do=get&amp;target=stereo_0.png"
+         alt="ROS stereo calibration UI (courtesy ROS wiki)" width="100%"/><figcaption>
+            <p>ROS stereo calibration UI <em>(courtesy <a href="http://wiki.ros.org/camera_calibration/Tutorials/StereoCalibration">ROS wiki</a>)</em></p>
+        </figcaption>
+</figure>
+</p>
+<p>After you run the calibration procedure, the program creates a tar ball of all the calibration images and the right and left camera yaml files (stores it as <code>/tmp/calibrationdata.tar.gz</code>). A typical yaml file for the left camera will look something like this:</p>
+<p><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">image_width</span>: <span style="color:#ae81ff">1280</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">image_height</span>: <span style="color:#ae81ff">720</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">camera_name</span>: <span style="color:#ae81ff">stereo/left</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">camera_matrix</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rows</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cols</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">data</span>: [ <span style="color:#ae81ff">1035.35966</span>,     <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,   653.49527,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,  1035.64358,   369.82718,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,     0.     ,     1.     ]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">camera_model</span>: <span style="color:#ae81ff">plumb_bob</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">distortion_coefficients</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rows</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cols</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">data</span>: [-<span style="color:#ae81ff">0.337964</span>, <span style="color:#ae81ff">0.123943</span>, -<span style="color:#ae81ff">0.000500</span>, -<span style="color:#ae81ff">0.000057</span>, <span style="color:#ae81ff">0.000000</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rectification_matrix</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rows</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cols</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">data</span>: [ <span style="color:#ae81ff">0.99981329</span>,  <span style="color:#ae81ff">0.00214123</span>,  <span style="color:#ae81ff">0.0192041</span> ,
+</span></span><span style="display:flex;"><span>         -<span style="color:#ae81ff">0.00218342</span>,  <span style="color:#ae81ff">0.99999525</span>,  <span style="color:#ae81ff">0.00217637</span>,
+</span></span><span style="display:flex;"><span>         -<span style="color:#ae81ff">0.01919934</span>, -<span style="color:#ae81ff">0.00221789</span>,  <span style="color:#ae81ff">0.99981322</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">projection_matrix</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rows</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cols</span>: <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">data</span>: [ <span style="color:#ae81ff">999.10542</span>,    <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,  640.06171,    0.     ,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,  999.10542,  365.41253,    0.     ,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,    0.     ,    1.     ,    0.     ]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<!-- raw HTML omitted --></p>
+<h2 id="image-dimensions">Image Dimensions</h2>
+<p>Lines 1 and 2 specify the image width and height. An interesting fact is, you can resize the image and use the same calibration values. The only thing you will need to scale accordingly is the camera matrix ($K$). The same distortion parameters just work.</p>
+<h2 id="camera-matrix-k">Camera Matrix, $K$</h2>
+<p>The camera matrix is typically represented as $K$. This is also called the intrinsic matrix. It is an upper triangular matrix of the form
+$$K = \begin{bmatrix} f_x &amp; skew &amp; c_x \\ 0 &amp; f_y &amp; c_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}$$
+where $f_x$ and $f_y$ are the focal lengths along the $X$ and $Y$ axes, $c_x$ and $c_y$ are the camera centers and $skew$ is the skew factor which is almost always zero. An important point to note here is that the focal length is in the pixel units. It is not in any metric dimensions. Generally the $f_x$ and $f_y$ values are pretty similar for a good quality camera. This just means that the pixels are squares. These values will be different if the pixels are rectangles ie., the horizontal size of a pixel is different from its vertical size. If the pixel is parallelogram instead of a square or rectangle, then we will see the skew factor coming into effect.</p>
+<h2 id="distortion-parameters-d">Distortion Parameters, $D$</h2>
+<p>As you may already know, an ideal pin-hole camera will have zero distortion. But it is not true for a real camera. You can think of the distortion parameters as a mathematical way of explaining away the inaccuracies in the image. Distortions are mathematical models which can express the manufacturing inaccuracies of the cameras and lenses. There are different models we could use to explain the inaccuracies. <code>Plumb Bob</code> is the most famous distortion model (<a href="http://www.vision.caltech.edu/bouguetj/calib_doc/htmls/parameters.html">introduced by Brown in 1966</a>) that is implemented in OpenCV. There are two types of distortions. The first one is called radial distortion which is caused by the lens. The distortion is the constant at a given distance from the principle point. It looks something like this (fish-eye effect).</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Barrel_distortion.svg/100px-Barrel_distortion.svg.png" alt="">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Pincushion_distortion.svg/100px-Pincushion_distortion.svg.png" alt=""><br>
+Barrel and pincushion distortions (<em>courtesy: wikipedia</em>)</p>
+<p>The radial distortion can be explained using three parameters and can be explained using the following equation.
+$$x_{distorted} = x(1 + k_1 r^2 + k_2 r^4 + k_3 r^6)$$
+$$y_{distorted} = y(1 + k_1 r^2 + k_2 r^4 + k_3 r^6)$$
+where,
+$$r = \sqrt{(x - c_x)^2 + (y - c_y)^2} $$</p>
+<p>$c_x$ and $c_y$ are the camera centers from the camera matrix, $K$. For more details on these equations refer to this <a href="https://calib.io/blogs/knowledge-base/camera-calibration-101">page</a> or Brown&rsquo;s[1] paper.</p>
+<p>The second type of distortion is caused due to inaccuracies in the mounting of the camera sensor such that it does not align to the center. This causes the imaging plane to not be parallel to the lens. This distortion can be explained using two parameters $p_1$ and $p_2$.</p>
+<p>$$x_{distorted} = x + [2 p_1 x y + p_2 (r^2 + 2 x^2)]$$
+$$y_{distorted} = y + [p_1 (r^2 + 2 y^2) + 2 p_2 x y ]$$</p>
+<p>Typically for high-end cameras where care is taken in the sensor mounting process, these parameters are pretty small. For cheap consumer grade cameras which are mass produced, these parameters could be high. However, nowadays with increase in efficiencies in manufacturing processes, these values are smaller even for cheaper cameras.</p>
+<p>Similarly the radial distortion parameters could be high for cheap plastic lenses and typically low for high-end glass lenses.</p>
+<p>It has to be noted that these five parameters will not be able to explain every inaccuracy in the image. If the lens or camera sensor have serious manufacturing issues, it is possible that even after estimating decent values for these parameters, the image might still look distorted. Also keep in mind that these parameters are estimated using non-linear optimization techniques like Levenberg Marquardt. The final solution is sensitive to initial conditions. Severe distortions could lead to local minima. We could think of using even more parameters to explain the inaccuracies, but at that point, the non-linear effects will dominate and obtaining a global minima will become impossible.</p>
+<h2 id="rectification-matrix-r_rect">Rectification Matrix, $R_{rect}$</h2>
+<p>This is the matrix which helps the stereo depth estimation algorithm to quickly estimate the depth of each pixel in the image. As a refresher lets look at how stereo matching happens. From epipolar geometry, for every pixel in one image there is a line called epipolar line that we have to search for correspondence in the other image. We will cover epipolar geometry in a different article. The image below shows how epipolar geometry is used to find correspondences.<br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Epipolar_geometry.svg/300px-Epipolar_geometry.svg.png" alt=""><br>
+Using epipolar geometry to find correspondences (<em>courtesy: wikipedia</em>)</p>
+<p>The epipolar line search becomes a lot faster if the epipolar lines are aligned to the pixel rows. This is what the rectification matrix does. It reprojects the camera images so that the epipolar planes are parallel. The figure belows shows this process. You will see that the epipolar lines become parallel (epipoles are at infinity). Now for every pixel in the left image, you just have to search for the corresponding pixel in the same row.<br>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Lecture_1027_stereo_01.jpg" width="50%"/>
+</figure>
+
+Epipolar search in rectified images (<em>courtesy: wikipedia</em>)</p>
+<h2 id="projection-matrix-p">Projection Matrix, $P$</h2>
+<p>We have to be careful that this is not the regular projection matrix used in computer vision literature. It has a similar form though. I got tripped by this several times in the past. In fact that is the motivation for me to write this article. If this is not the regular projection matrix what is it then?</p>
+<p>$$ \begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = K * [R | t] * \begin{bmatrix} X \\ Y \\ Z \\ 1 \end{bmatrix}$$</p>
+<p>This is the regular camera projection equation. It projects a 3D point to 2D image. Here <code>$\begin{bmatrix}u &amp; v &amp; 1\end{bmatrix}^T$</code> is the homogenous pixel coordinates. <code>$K$</code> is the intrinsic camera matrix which we saw before, <code>$\begin{bmatrix} X &amp; Y &amp;  Z &amp; 1 \end{bmatrix}^T$</code> is the homogeneous 3D point in the world coordinate frame. <code>$[R | t]$ </code>is the projection matrix which projects the 3D from the world coordinates to the camera coordinate frame.</p>
+<p>However the projection matrix that we have here is different. For the left camera it is of the form:
+$$ P^l = \begin{bmatrix} f &amp; 0 &amp; c_x &amp; 0 \\ 0 &amp; f &amp; c_y &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} $$
+and for the right camera it is of the form:
+$$ P^r = \begin{bmatrix} f &amp; 0 &amp; c_x &amp; T_x * f \\ 0 &amp; f &amp; c_y &amp; 0  \\ 0  &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} $$</p>
+<p>The first <code>3x3</code> elements correspond to the camera matrix <code>$K$</code> after the rectification. The last column will be all zeros for the left camera or for monocular cameras. For horizontal stereo setup (that is the left-right camera setup) the first entry will be $T_x * f$ and and the rest are all zeros.</p>
+<p>For vertical stereo setup (top down setup) the second entry will be $T_y * f$ and the rest are all zeros. It will be of the form:
+$$ P^d = \begin{bmatrix} f &amp; 0 &amp; c_x &amp; 0\\ 0 &amp; f &amp; c_y &amp;  T_y * f   \\ 0  &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} $$</p>
+<p>Here is a sample of the right camera yaml file.</p>
+<p><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">projection_matrix</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rows</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cols</span>: <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">data</span>: [ <span style="color:#ae81ff">999.10542</span>,    <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,  640.06171,  -79.98422,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,  999.10542,  365.41253,    0.     ,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.     ,    0.     ,    1.     ,    0.     ]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<!-- raw HTML omitted -->
+The first 3x3 elements are the new $K$ matrix which looks a lot similar to the original $K$ matrix but differs a bit because these correspond to the rectified image. The actual reprojection equation now becomes,
+$$ \begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = P * \begin{bmatrix} X \\ Y \\ Z \\ 1 \end{bmatrix}$$</p>
+<p>Note that this equation does not have the camera matrix $K$ which is sucked into the projection matrix $P$. We don&rsquo;t need the rotation and translations because we are using the rectified image which already accounts for those. If you want to extract the baseline between the cameras, use this formula.</p>
+<p>$$ baseline = \frac{-T_x}{f}$$</p>
+<p>The units will be whatever units you used to measure the length of the checkerboard squares during calibration.</p>
+<h2 id="references">References</h2>
+<p>[1]: Close-Range Camera Calibration, D.C. Brown, Photogrammetric Engineering, pages 855-866, Vol. 37, No. 8, 1971.</p>
+
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        
+
+
+<div id="sharing">
+  <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fwww.merrysprout.com%2fposts%2fcamera%2fros_stereo_calibration_yaml%2f" class="facebook" aria-label="share on Facebook">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="126.445 2.281 589 589"><circle cx="420.945" cy="296.781" r="294.5" fill="#3c5a9a"/><path d="M516.704 92.677h-65.239c-38.715 0-81.777 16.283-81.777 72.402.189 19.554 0 38.281 0 59.357H324.9v71.271h46.174v205.177h84.847V294.353h56.002l5.067-70.117h-62.531s.14-31.191 0-40.249c0-22.177 23.076-20.907 24.464-20.907 10.981 0 32.332.032 37.813 0V92.677h-.032z" fill="#fff"/></svg>
+  </a>
+
+  <a href="http://twitter.com/share?url=https%3a%2f%2fwww.merrysprout.com%2fposts%2fcamera%2fros_stereo_calibration_yaml%2f&text=ROS%2fOpenCV%20Stereo%20Calibration%20yaml%20files&via=" class="twitter" aria-label="share on Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="-0.25 -0.25 1109.5 901.5"><path d="M741 .2V0h52l19 3.8c12.667 2.467 24.167 5.7 34.5 9.7 10.334 4 20.334 8.667 30 14 9.667 5.333 18.434 10.767 26.301 16.3 7.8 5.467 14.8 11.267 21 17.4C929.933 67.4 939.5 69 952.5 66s27-7.167 42-12.5 29.834-11.333 44.5-18c14.667-6.667 23.601-10.9 26.801-12.7 3.133-1.866 4.8-2.866 5-3l.199-.3 1-.5 1-.5 1-.5 1-.5.2-.3.3-.2.301-.2.199-.3 1-.3 1-.2-.199 1.5-.301 1.5-.5 1.5-.5 1.5-.5 1-.5 1-.5 1.5c-.333 1-.666 2.333-1 4-.333 1.667-3.5 8.333-9.5 20S1051 73 1042 85s-17.066 21.066-24.199 27.2c-7.2 6.2-11.967 10.533-14.301 13-2.333 2.533-5.166 4.866-8.5 7l-5 3.3-1 .5-1 .5-.199.3-.301.2-.3.2-.2.3-1 .5-1 .5-.199.3-.301.2-.3.2-.2.3-.199.3-.301.2-.3.2-.2.3h5l28-6c18.667-4 36.5-8.833 53.5-14.5l27-9 3-1 1.5-.5 1-.5 1-.5 1-.5 1-.5 2-.3 2-.2v2l-.5.2-.5.3-.199.3-.301.2-.3.2-.2.3-.199.3-.301.2-.3.2-.2.3-.199.3-.301.2-.5 1-.5 1-.3.2c-.133.2-4.366 5.866-12.7 17-8.333 11.2-12.833 16.866-13.5 17-.666.2-1.6 1.2-2.8 3-1.133 1.866-8.2 9.3-21.2 22.3s-25.732 24.566-38.199 34.7c-12.533 10.2-18.867 22.733-19 37.6-.2 14.8-.967 31.534-2.301 50.2-1.333 18.667-3.833 38.833-7.5 60.5-3.666 21.667-9.333 46.167-17 73.5-7.666 27.333-17 54-28 80s-22.5 49.333-34.5 70-23 38.167-33 52.5-20.166 27.833-30.5 40.5c-10.333 12.667-23.399 26.934-39.199 42.8-15.867 15.8-24.533 24.467-26 26-1.533 1.467-8.066 6.934-19.601 16.4-11.466 9.533-23.8 19.066-37 28.6-13.133 9.467-25.2 17.367-36.2 23.7s-24.266 13.566-39.8 21.7C630.734 840.4 614 848 596 855s-37 13.5-57 19.5-39.333 10.667-58 14c-18.666 3.333-39.833 6.167-63.5 8.5l-35.5 3.5v.5h-65v-.5l-8.5-.5c-5.666-.333-10.333-.667-14-1-3.666-.333-17.5-2.167-41.5-5.5s-42.833-6.667-56.5-10c-13.666-3.333-34-9.667-61-19s-50.1-18.767-69.3-28.3c-19.133-9.467-31.133-15.467-36-18-4.8-2.467-10.2-5.533-16.2-9.2l-9-5.5-.199-.3-.301-.2-.3-.2-.2-.3-1-.5-1-.5-.199-.3-.301-.2-.3-.2-.2-.3-.199-.3L.5 800H0v-2l1 .2 1 .3 4.5.5c3 .333 11.167.833 24.5 1.5 13.334.667 27.5.667 42.5 0s30.334-2.167 46-4.5c15.667-2.333 34.167-6.333 55.5-12 21.334-5.667 40.934-12.4 58.801-20.2 17.8-7.866 30.466-13.733 38-17.6 7.466-3.8 18.866-10.867 34.199-21.2l23-15.5.2-.3.3-.2.301-.2.199-.3.2-.3.3-.2.301-.2.199-.3 1-.3 1-.2.2-1 .3-1 .301-.2.199-.3-8-.5c-5.333-.333-10.5-.667-15.5-1s-12.833-1.833-23.5-4.5c-10.666-2.667-22.166-6.667-34.5-12-12.333-5.333-24.333-11.667-36-19-11.666-7.333-20.1-13.434-25.3-18.3-5.133-4.801-11.8-11.6-20-20.4-8.133-8.866-15.2-17.967-21.2-27.3s-11.733-20.101-17.199-32.3L124.5 551l-.5-1.5-.5-1.5-.3-1-.2-1 1.5.2 1.5.3 11 1.5c7.334 1 18.834 1.333 34.5 1 15.667-.333 26.5-1 32.5-2s9.667-1.667 11-2l2-.5 2.5-.5 2.5-.5.2-.3.3-.2.301-.2.199-.3-2-.5-2-.5-2-.5-2-.5-2-.5c-1.333-.333-3.666-1-7-2-3.333-1-12.333-4.667-27-11-14.666-6.333-26.333-12.5-35-18.5a241.7 241.7 0 0 1-24.8-19.7c-7.8-7.2-16.366-16.467-25.7-27.8-9.333-11.333-17.666-24.5-25-39.5-7.333-15-12.833-29.333-16.5-43a232.143 232.143 0 0 1-7.199-41.5L43 316l1 .2 1 .3 1 .5 1 .5 1 .5 1 .5 15.5 7c10.334 4.667 23.167 8.667 38.5 12 15.334 3.333 24.5 5.167 27.5 5.5l4.5.5h9l-.199-.3-.301-.2-.3-.2-.2-.3-.199-.3-.301-.2-.3-.2-.2-.3-1-.5-1-.5-.199-.3-.301-.2-.3-.2-.2-.3-1-.5-1-.5-.199-.3c-.2-.134-3.067-2.267-8.601-6.4-5.467-4.2-11.2-9.633-17.2-16.3s-12-13.667-18-21A162.158 162.158 0 0 1 77 271c-4.666-8.333-9.6-18.934-14.8-31.8-5.133-12.8-9.033-25.7-11.7-38.7-2.666-13-4.166-25.833-4.5-38.5-.333-12.667 0-23.5 1-32.5s3-19.167 6-30.5 7.334-23.333 13-36l8.5-19 .5-1.5.5-1.5.301-.2.199-.3.2-.3.3-.2.301.2.199.3.2.3.3.2.301.2.199.3.2.3.3.2.5 1 .5 1 .301.2.199.3 13.5 15c9 10 19.667 21.167 32 33.5 12.334 12.333 19.167 18.733 20.5 19.2 1.334.533 3 2.066 5 4.6 2 2.467 8.667 8.367 20 17.7 11.334 9.333 26.167 20.167 44.5 32.5 18.334 12.333 38.667 24.5 61 36.5 22.334 12 46.334 22.833 72 32.5 25.667 9.667 43.667 16 54 19 10.334 3 28 6.833 53 11.5s43.834 7.667 56.5 9c12.667 1.333 21.334 2.1 26 2.3l7 .2-.199-1.5-.301-1.5-2-12.5c-1.333-8.333-2-20-2-35s1.167-28.833 3.5-41.5c2.334-12.667 5.834-25.5 10.5-38.5 4.667-13 9.234-23.434 13.7-31.3 4.534-7.8 10.467-16.7 17.8-26.7 7.334-10 16.834-20.333 28.5-31 11.667-10.667 25-20.167 40-28.5s28.834-14.667 41.5-19c12.667-4.333 23.334-7.167 32-8.5 8.667-1.333 13-2.1 13-2.3z" fill="#5da8dc" stroke="#5da8dc" stroke-width=".5"/><path d="M0 399V0h741v.2c0 .2-4.333.966-13 2.3-8.666 1.333-19.333 4.167-32 8.5-12.666 4.333-26.5 10.667-41.5 19s-28.333 17.833-40 28.5c-11.666 10.667-21.166 21-28.5 31-7.333 10-13.266 18.9-17.8 26.7-4.466 7.866-9.033 18.3-13.7 31.3-4.666 13-8.166 25.833-10.5 38.5-2.333 12.667-3.5 26.5-3.5 41.5s.667 26.667 2 35l2 12.5.301 1.5.199 1.5-7-.2c-4.666-.2-13.333-.966-26-2.3-12.666-1.333-31.5-4.333-56.5-9s-42.666-8.5-53-11.5c-10.333-3-28.333-9.333-54-19-25.666-9.667-49.666-20.5-72-32.5-22.333-12-42.666-24.167-61-36.5-18.333-12.333-33.166-23.167-44.5-32.5-11.333-9.333-18-15.233-20-17.7-2-2.533-3.666-4.066-5-4.6-1.333-.467-8.166-6.867-20.5-19.2-12.333-12.333-23-23.5-32-33.5L80 44.5l-.199-.3-.301-.2-.5-1-.5-1-.3-.2-.2-.3-.199-.3-.301-.2-.3-.2-.2-.3-.199-.3-.301-.2-.3.2-.2.3-.199.3-.301.2-.5 1.5-.5 1.5L66 63c-5.666 12.667-10 24.667-13 36s-5 21.5-6 30.5-1.333 19.833-1 32.5c.334 12.667 1.834 25.5 4.5 38.5 2.667 13 6.567 25.9 11.7 38.7 5.2 12.866 10.134 23.466 14.8 31.8 4.667 8.333 10 16.167 16 23.5 6 7.333 12 14.333 18 21s11.733 12.1 17.2 16.3c5.533 4.134 8.4 6.267 8.601 6.4l.199.3 1 .5 1 .5.2.3.3.2.301.2.199.3 1 .5 1 .5.2.3.3.2.301.2.199.3.2.3.3.2.301.2.199.3h-9l-4.5-.5c-3-.333-12.166-2.167-27.5-5.5-15.333-3.333-28.166-7.333-38.5-12l-15.5-7-1-.5-1-.5-1-.5-1-.5-1-.3-1-.2 1.801 21c1.133 14 3.533 27.833 7.199 41.5 3.667 13.667 9.167 28 16.5 43 7.334 15 15.667 28.167 25 39.5 9.334 11.333 17.9 20.6 25.7 27.8a241.7 241.7 0 0 0 24.8 19.7c8.667 6 20.334 12.167 35 18.5 14.667 6.333 23.667 10 27 11 3.334 1 5.667 1.667 7 2l2 .5 2 .5 2 .5 2 .5 2 .5-.199.3-.301.2-.3.2-.2.3-2.5.5-2.5.5-2 .5c-1.333.333-5 1-11 2s-16.833 1.667-32.5 2c-15.666.333-27.166 0-34.5-1l-11-1.5-1.5-.3-1.5-.2.2 1 .3 1 .5 1.5.5 1.5 8.301 18.2C138.266 581.399 144 592.167 150 601.5s13.067 18.434 21.2 27.3c8.2 8.801 14.867 15.6 20 20.4 5.2 4.866 13.634 10.967 25.3 18.3 11.667 7.333 23.667 13.667 36 19 12.334 5.333 23.834 9.333 34.5 12 10.667 2.667 18.5 4.167 23.5 4.5s10.167.667 15.5 1l8 .5-.199.3-.301.2-.3 1-.2 1-1 .2-1 .3-.199.3-.301.2-.3.2-.2.3-.199.3-.301.2-.3.2-.2.3-23 15.5c-15.333 10.333-26.733 17.4-34.199 21.2-7.534 3.866-20.2 9.733-38 17.6-17.867 7.8-37.467 14.533-58.801 20.2-21.333 5.667-39.833 9.667-55.5 12-15.666 2.333-31 3.833-46 4.5s-29.166.667-42.5 0c-13.333-.667-21.5-1.167-24.5-1.5l-4.5-.5-1-.3-1-.2V399zM1107.801 109.8l.199-.3.5-.3.5-.2v792H382v-.5l35.5-3.5c23.667-2.333 44.834-5.167 63.5-8.5 18.667-3.333 38-8 58-14s39-12.5 57-19.5 34.734-14.6 50.2-22.8c15.534-8.134 28.8-15.367 39.8-21.7s23.067-14.233 36.2-23.7c13.2-9.533 25.534-19.066 37-28.6 11.534-9.467 18.067-14.934 19.601-16.4 1.467-1.533 10.133-10.2 26-26 15.8-15.866 28.866-30.133 39.199-42.8 10.334-12.667 20.5-26.167 30.5-40.5s21-31.833 33-52.5 23.5-44 34.5-70 20.334-52.667 28-80c7.667-27.333 13.334-51.833 17-73.5 3.667-21.667 6.167-41.833 7.5-60.5 1.334-18.667 2.101-35.4 2.301-50.2.133-14.866 6.467-27.4 19-37.6 12.467-10.134 25.199-21.7 38.199-34.7s20.067-20.434 21.2-22.3c1.2-1.8 2.134-2.8 2.8-3 .667-.134 5.167-5.8 13.5-17 8.334-11.134 12.567-16.8 12.7-17l.3-.2.5-1 .5-1 .301-.2.199-.3.2-.3.3-.2.301-.2.199-.3.2-.3.3-.2.301-.2zM812 3.8L793 0h316v107l-2 .2-2 .3-1 .5-1 .5-1 .5-1 .5-1.5.5-3 1-27 9c-17 5.667-34.833 10.5-53.5 14.5l-28 6h-5l.2-.3.3-.2.301-.2.199-.3.2-.3.3-.2.301-.2.199-.3 1-.5 1-.5.2-.3.3-.2.301-.2.199-.3 1-.5 1-.5 5-3.3c3.334-2.134 6.167-4.467 8.5-7 2.334-2.467 7.101-6.8 14.301-13C1024.933 106.066 1033 97 1042 85s16.5-23.833 22.5-35.5 9.167-18.333 9.5-20c.334-1.667.667-3 1-4l.5-1.5.5-1 .5-1 .5-1.5.5-1.5.301-1.5.199-1.5-1 .2-1 .3-.199.3-.301.2-.3.2-.2.3-1 .5-1 .5-1 .5-1 .5-.199.3c-.2.134-1.867 1.134-5 3-3.2 1.8-12.134 6.034-26.801 12.7-14.666 6.667-29.5 12.667-44.5 18s-29 9.5-42 12.5-22.566 1.4-28.699-4.8c-6.2-6.134-13.2-11.934-21-17.4-7.867-5.533-16.634-10.966-26.301-16.3a245.399 245.399 0 0 0-30-14c-10.333-4-21.833-7.233-34.5-9.7zM0 850.5V800h.5l.301.2.199.3.2.3.3.2.301.2.199.3 1 .5 1 .5.2.3.3.2.301.2.199.3 9 5.5c6 3.667 11.4 6.733 16.2 9.2 4.867 2.533 16.867 8.533 36 18 19.2 9.533 42.3 18.967 69.3 28.3s47.334 15.667 61 19c13.667 3.333 32.5 6.667 56.5 10s37.834 5.167 41.5 5.5c3.667.333 8.334.667 14 1l8.5.5v.5H0v-50.5z" fill="#fff" stroke="#fff" stroke-width=".5"/></svg>
+  </a>
+
+  <a href="mailto:?subject=Check%20out%20ROS%2fOpenCV%20Stereo%20Calibration%20yaml%20files.&body=ROS%2fOpenCV%20Stereo%20Calibration%20yaml%20files%2c%20by%20Merry%20Sprout%0a%3cnil%3e%0a%0ahttps%3a%2f%2fwww.merrysprout.com%2fposts%2fcamera%2fros_stereo_calibration_yaml%2f%0a" class="twitter" aria-label="share on Email">
+    <svg shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" xmlns="http://www.w3.org/2000/svg" width="50" height="36" viewBox="7.086 7.087 1277.149 924.008"><path fill="none" d="M1138.734 931.095h.283M1139.017 931.095h-.283"/><path d="M1179.439 7.087c57.543 0 104.627 47.083 104.627 104.626v30.331l-145.36 103.833-494.873 340.894L148.96 242.419v688.676h-37.247c-57.543 0-104.627-47.082-104.627-104.625V111.742C7.086 54.198 54.17 7.115 111.713 7.115l532.12 394.525L1179.41 7.115l.029-.028z" fill="#e75a4d"/><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="1959.712" y1="737.107" x2="26066.213" y2="737.107" gradientTransform="matrix(.0283 0 0 -.0283 248.36 225.244)"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#e7e4d6"/></linearGradient><path fill="url(#a)" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/><path fill="#e7e4d7" d="M148.96 242.419v688.676h989.774V245.877L643.833 586.771z"/><path fill="#b8b7ae" d="M148.96 931.095l494.873-344.324-2.24-1.586L148.96 923.527z"/><path fill="#b7b6ad" d="M1138.734 245.877l.283 685.218-495.184-344.324z"/><path d="M1284.066 142.044l.17 684.51c-2.494 76.082-35.461 103.238-145.219 104.514l-.283-685.219 145.36-103.833-.028.028z" fill="#b2392f"/><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="1959.712" y1="737.107" x2="26066.213" y2="737.107" gradientTransform="matrix(.0283 0 0 -.0283 248.36 225.244)"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#e7e4d6"/></linearGradient><path fill="url(#b)" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/><linearGradient id="c" gradientUnits="userSpaceOnUse" x1="1959.712" y1="737.107" x2="26066.213" y2="737.107" gradientTransform="matrix(.0283 0 0 -.0283 248.36 225.244)"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#e7e4d6"/></linearGradient><path fill="url(#c)" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/><linearGradient id="d" gradientUnits="userSpaceOnUse" x1="1959.712" y1="737.107" x2="26066.213" y2="737.107" gradientTransform="matrix(.0283 0 0 -.0283 248.36 225.244)"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#e7e4d6"/></linearGradient><path fill="url(#d)" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/><linearGradient id="e" gradientUnits="userSpaceOnUse" x1="1959.712" y1="737.107" x2="26066.213" y2="737.107" gradientTransform="matrix(.0283 0 0 -.0283 248.36 225.244)"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#e7e4d6"/></linearGradient><path fill="url(#e)" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/><linearGradient id="f" gradientUnits="userSpaceOnUse" x1="1959.712" y1="737.107" x2="26066.213" y2="737.107" gradientTransform="matrix(.0283 0 0 -.0283 248.36 225.244)"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#e7e4d6"/></linearGradient><path fill="url(#f)" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="1959.712" y1="737.107" x2="26066.213" y2="737.107" gradientTransform="matrix(.0283 0 0 -.0283 248.36 225.244)"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#e7e4d6"/></linearGradient><path fill="url(#g)" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/><linearGradient id="h" gradientUnits="userSpaceOnUse" x1="1959.712" y1="737.107" x2="26066.213" y2="737.107" gradientTransform="matrix(.0283 0 0 -.0283 248.36 225.244)"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#e7e4d6"/></linearGradient><path fill="url(#h)" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/><path fill="#f7f5ed" d="M111.713 7.087l532.12 394.525L1179.439 7.087z"/></svg>
+  </a>
+</div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "merrysprout" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</div>
+
+
+
+
+        </div>  
+        <footer>
+    <p><center>&copy; 2020 www.merrysprout.com </center></p>
+</footer>    
+
+         
+<link rel="stylesheet" href="/css/bootstrap_united.min.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+
+        <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+        <link rel="stylesheet" type="text/css" href="/css/style.css"  >
+        <script src="/js/custom.js"></script>
+        
+    
+
+    </body>
+
+
+</html> 

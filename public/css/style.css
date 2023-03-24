@@ -1,0 +1,56 @@
+ /* Style the header */
+/*.header {
+    padding: 10px 16px;
+    background: #555;
+    color: #f1f1f1;
+  }
+*/
+
+/*center figure captions*/
+figcaption {
+  text-align: center;
+}
+
+  /* Page content */
+  .content {
+    padding: 16px;
+  }
+  
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  
+  
+@font-face
+{
+font-family: RighteousRegular;
+src: url('Righteous-Regular.ttf');
+}
+.header { font-family: 'RighteousRegular', Times, serif; }
+
+.navbar-brand
+    {
+      font-size: xx-large;
+    }
+
+
+img {
+  object-fit: cover;
+}
+
+@font-face
+{
+  font-family: QuicksandRegular;
+  src: url('Quicksand-Regular.ttf');
+}
+
+@font-face
+{
+  font-family: QuicksandMedium;
+  src: url('Quicksand-Medium.ttf');
+}
+
+.blog-content { font-family: 'QuicksandMedium', Times, serif; }

@@ -1,0 +1,67 @@
+{{ define "main" }}
+<div class="row">
+{{ $cardtype := "bg-light" }}
+<div class="row">
+  <div class="col-md-12">
+    <!-- {{ partial "image-slider" . (dict "path" "banner") }} -->
+  </div>
+</div>
+
+<div class="col-md-12">
+
+    {{ range .Site.RegularPages }}
+
+      {{ if not ( or ( eq .Title "About")  (eq .Title "TODO") ) }}
+        <div class="row">
+            <div class="col-md-12 col-sm-6">
+                <!-- a href="{{ .RelPermalink }}">{{ .Title }}</a --> 
+
+
+                {{ if eq $cardtype "bg-light" }}
+                {{ $cardtype = "bg-dark" }}
+                <div class="card mb-4 text-white {{ $cardtype }}">
+                  <div class="row ">
+                    <div class="col-md-5">
+                        <img  class="w-100 thumbnail" src="/banner/{{ .Params.banner }}">
+                    </div>
+                    <div class="col-md-7 px-3">
+                      <div class="card-block px-3">
+                        <h4 class="card-header" >{{ .Title }}</h4><small class="text-muted">{{ .ReadingTime }} mins</small>
+                        <p class="card-text">{{ .Summary }}</p>
+                        <a href="{{ .RelPermalink}}" class="btn btn-light">Read More</a>
+                        
+                      </div>
+                    </div>
+            
+                  </div>
+                </div>
+                {{ else }}
+                {{ $cardtype = "bg-light" }}
+                <div class="card mb-4 text-dark {{ $cardtype }}">
+                  <div class="row ">
+                    <div class="col-md-7 px-3">
+                      <div class="card-block px-3">
+                        <h4 class="card-header" >{{ .Title }} </h4> <small class="text-muted">{{ .ReadingTime }} mins</small>
+                        <p class="card-text">{{ .Summary }}</p>
+                        <a href="{{ .RelPermalink}}" class="btn btn-primary">Read More</a>
+                        
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img  class="w-100 img thumbnail" src="/banner/{{ .Params.banner }}">
+                    </div>
+
+            
+                  </div>
+                </div>
+                {{ end }}
+
+                
+                
+            </div>
+        </div>
+      {{ end }}
+    {{ end }}
+</div>
+</div>
+{{ end }}
