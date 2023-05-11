@@ -1,12 +1,12 @@
 baseURL = "https://blog.buildrobotz.com"
 languageCode = "en-us"
 title = "BuildRobotZ"
-googleAnalytics = "UA-164308157-1"
+#googleAnalytics = "G-74QS6QP8PQ"
 disqusShortname = "merrysprout"
 
 [params]
 logo = "banner/BuildRobotZ-logo-lg-white.png"
-copyright = "www.buildrobotz.com"
+copyright = " www.buildrobotz.com"
 tagline = "Inspiring roboticist"
 banners="/content/banner/"
 
