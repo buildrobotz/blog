@@ -5,7 +5,7 @@ googleAnalytics = "UA-164308157-1"
 disqusShortname = "merrysprout"
 
 [params]
-logo = "banner/merrysprout-logo.png"
+logo = "banner/BuildRobotZ-logo-lg-white.png"
 copyright = "www.buildrobotz.com"
 tagline = "Inspiring roboticist"
 banners="/content/banner/"
