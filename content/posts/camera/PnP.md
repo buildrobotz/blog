@@ -5,7 +5,8 @@ draft: false
 banner: "pnp.jpg"
 summary: "PnP algorithm estimates the position of the camera based on some 3d points and their projections on the image. Lets learn the math behind this"
 categories: []
-tags: []
+tags: ['transforms']
+math: true
 ---
 
 ## Applications

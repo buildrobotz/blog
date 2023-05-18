@@ -5,7 +5,8 @@ draft: false
 banner: "camera_calibration_math.jpg"
 summary: "Ever wondered how the camera parameters are estimated during calibration. Let us explore the math behind it"
 categories: []
-tags: []
+tags: ['calibration','perception','camera']
+math: true
 ---
 
 ## Pin-hole Model

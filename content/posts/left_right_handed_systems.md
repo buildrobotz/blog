@@ -4,6 +4,7 @@ date: 2019-06-17T16:22:23-04:00
 draft: false
 banner: 'left-right-v2.jpg'
 summary: "So you have X forward and Z up. Now is Y to the right or left? Is this right handed system or ??!!??"
+math: true
 ---
 Almost everyone would have encountered left/right handed systems in their physics class at high school. But can easily get mixed up and confuse the axes when the need arises. If you follow this simple rule you will always end up with the correct answer.
 

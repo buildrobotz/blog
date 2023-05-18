@@ -5,7 +5,8 @@ draft: false
 banner: "pin-hole-camera-model.jpg"
 summary: "Let us study the pin-hole camera model and see its relationship to the projection equation."
 categories: []
-tags: []
+tags: ['perception','camera']
+math: true
 ---
 Cameras have become ubiqutious. They have become the most common sensor in any robotic system that perceives the world. This is because cameras pack a lot of information in a single image. As the old adage goes `one picture is worth a thousand words`. 
 

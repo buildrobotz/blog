@@ -1,7 +1,35 @@
 {{ define "main" }}
 
-    {{ range .Pages }}
-        <a href="{{ .RelPermalink}}">{{ .Title }}</a> <br>
+<div class="container">
+    <div class="row font-sans"> 
+        <div class="col-md-12 mt-10">
+
+    <!-- Display the blog pages as cards-->
+    {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.MainSections ) 6 }}
+    {{ range $pag.Pages }}
+    {{ partial "post_preview" . }}
     {{ end }}
+</div> 
+</div>
+</div>
+
+
+    <!-- Setup the paganation links -->
+    <!-- {{ range .Pages }}
+        <a href="{{ .RelPermalink}}">{{ .Title }}</a> <br>
+    {{ end }} -->
+ 
+    <div class="container">
+        <div class="row font-sans"> 
+            <div class="col-md-12 mt-10">
+                <nav aria-label="Page navigation"> 
+                <ul class= "pagination justify-content-end">    
+                {{ template "_internal/pagination.html" . }} 
+                </ul>
+                </nav> 
+            </div> 
+        </div>
+    </div>
+
 
 {{ end }}

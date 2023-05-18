@@ -5,8 +5,9 @@ draft: false
 banner: "ros_stereo_calibration_yaml.jpg"
 summary: "Whenever I look at the yaml files produced by ROS stereo calibration, I get confused on what they actually mean. Lets look at what these actually are."
 categories: []
-tags: []
+tags: ['calibration','perception','camera','stereo']
 add3j: false
+math: true
 ---
 
 For those of you who have done stereo calibration in the past (a few years ago), will remember it was not easy. Then came the famous [camera calibration toolbox for Matlab](http://www.vision.caltech.edu/bouguetj/calib_doc/) developed by Bouguet. It made things a lot easier. Then OpenCV implemented [these methods](https://docs.opencv.org/3.4/d4/d94/tutorial_camera_calibration.html) in C++ and that added even more control. ROS took it the next level and made the calibration process a lot easier and interactive. I really like the feature where they tell you in which way you need to move the calibration target to get a better calibration. 

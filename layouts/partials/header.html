@@ -1,3 +1,38 @@
+<div class="header" id="page_menu" >
+  <div class="container">
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/"> <img src="/{{ .Site.Params.logo }}" style="width:100px;" /></a>
+      <span class="navbar-text">
+        {{ .Site.Params.tagline }}
+      </span>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-text " title="About" href="/pages/about">About &nbsp;&nbsp;</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-text" title="Blogs" href="/posts/">Blogs &nbsp;&nbsp;</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-text" title="Projects" href="/projects/">Projects &nbsp;&nbsp;</a>
+          </li>
+          <li class="nav-item ms-auto">
+            <a class="bi bi-moon-stars" id="dark-mode-toggle"> &nbsp;&nbsp;</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>    
+  </div>
+</div> 
+
+<br>
+<br>
+<br>
+<br>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-74QS6QP8PQ"></script>
 <script>
@@ -8,16 +43,6 @@
   gtag('config', 'G-74QS6QP8PQ');
 </script>
 
-<div class="header" id="page_menu" >
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/"> <img src="/{{ .Site.Params.logo }}" style="width:200px;" /></a>
-    <span class="navbar-text">
-      {{ .Site.Params.tagline }}
-    </span>
+<!-- Hugo Version number -->
+{{ hugo.Generator -}}
 
-    
-    <div class="navbar-nav ml-auto">
-      <a class="navbar-text " href="/about/about">About</a>
-    </div>
-  </nav>    
-</div> <br>

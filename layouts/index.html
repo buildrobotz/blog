@@ -1,67 +1,88 @@
 {{ define "main" }}
+<!-- 
+<form style="border:1px solid #ccc;padding:20px;text-align:center;" action="https://tinyletter.com/buildrobotz" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/buildrobotz', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"><p><label for="tlemail">Enter your email address</label></p><p><input type="text" style="width:140px" name="email" id="tlemail" /></p><input type="hidden" value="1" name="embed"/><input type="submit" value="Subscribe" /><p></form>
+-->
 <div class="row">
-{{ $cardtype := "bg-light" }}
-<div class="row">
-  <div class="col-md-12">
-    <!-- {{ partial "image-slider" . (dict "path" "banner") }} -->
+  {{ $cardtype := "bg-light" }}
+  <div class="row">
+    <div class="col-md-12">
+      <!-- {{ partial "image-slider" . (dict "path" "banner") }} -->
+    </div>
   </div>
-</div>
 
-<div class="col-md-12">
+{{ if not .Site.Params.PostsAsRows }}
 
-    {{ range .Site.RegularPages }}
-
-      {{ if not ( or ( eq .Title "About")  (eq .Title "TODO") ) }}
-        <div class="row">
-            <div class="col-md-12 col-sm-6">
-                <!-- a href="{{ .RelPermalink }}">{{ .Title }}</a --> 
+  <!-- Display the blog pages as cards-->
+  {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections ) 6 }}
+  {{ range $pag.Pages }}
+  {{ partial "post_preview" . }}
+  {{ end }}
 
 
-                {{ if eq $cardtype "bg-light" }}
-                {{ $cardtype = "bg-dark" }}
-                <div class="card mb-4 text-white {{ $cardtype }}">
-                  <div class="row ">
-                    <div class="col-md-5">
-                        <img  class="w-100 thumbnail" src="/banner/{{ .Params.banner }}">
-                    </div>
-                    <div class="col-md-7 px-3">
-                      <div class="card-block px-3">
-                        <h4 class="card-header" >{{ .Title }}</h4><small class="text-muted">{{ .ReadingTime }} mins</small>
-                        <p class="card-text">{{ .Summary }}</p>
-                        <a href="{{ .RelPermalink}}" class="btn btn-light">Read More</a>
+  <!-- Setup the paganation links --> 
+  <div class="container">
+      <div class="row font-sans"> 
+          <div class="col-md-12 mt-10">
+              <nav aria-label="Page navigation"> 
+              <ul class= "pagination justify-content-end">    
+              {{ template "_internal/pagination.html" . }} 
+              </ul>
+              </nav> 
+          </div> 
+      </div>
+  </div>
+
+{{ else }}
+  <div class="col-md-12">
+    {{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
+    <div class="row">
+      <div class="col-md-12 col-sm-6">
+      <!-- a href="{{ .RelPermalink }}">{{ .Title }}</a --> 
+
+
+        {{ if eq $cardtype "bg-light" }}
+          {{ $cardtype = "bg-dark" }}
+          <div class="card mb-4 text-white {{ $cardtype }}">
+            <div class="row ">
+              <div class="col-md-5">
+                <img  class="w-100 thumbnail" src="/banner/{{ .Params.banner }}">
+              </div>
+              <div class="col-md-7 px-3">
+                <div class="card-block px-3">
+                  <h4 class="card-header" >{{ .Title }}</h4><small class="text-muted">{{ .ReadingTime }} mins</small>
+                  <p class="card-text">{{ .Summary }}</p>
+                  <a href="{{ .RelPermalink}}" class="btn btn-light">Read More</a>
                         
-                      </div>
-                    </div>
-            
-                  </div>
                 </div>
-                {{ else }}
-                {{ $cardtype = "bg-light" }}
-                <div class="card mb-4 text-dark {{ $cardtype }}">
-                  <div class="row ">
-                    <div class="col-md-7 px-3">
-                      <div class="card-block px-3">
-                        <h4 class="card-header" >{{ .Title }} </h4> <small class="text-muted">{{ .ReadingTime }} mins</small>
-                        <p class="card-text">{{ .Summary }}</p>
-                        <a href="{{ .RelPermalink}}" class="btn btn-primary">Read More</a>
-                        
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                        <img  class="w-100 img thumbnail" src="/banner/{{ .Params.banner }}">
-                    </div>
-
+              </div>
             
-                  </div>
-                </div>
-                {{ end }}
-
-                
-                
             </div>
-        </div>
-      {{ end }}
-    {{ end }}
+          </div>
+          
+        {{ else }}
+          {{ $cardtype = "bg-light" }}
+          <div class="card mb-4 text-dark {{ $cardtype }}">
+            <div class="row ">
+              <div class="col-md-7 px-3">
+                <div class="card-block px-3">
+                  <h4 class="card-header" >{{ .Title }} </h4> <small class="text-muted">{{ .ReadingTime }} mins</small>
+                  <p class="card-text">{{ .Summary }}</p>
+                  <a href="{{ .RelPermalink}}" class="btn btn-primary">Read More</a>
+                        
+                </div>
+              </div>
+              <div class="col-md-5">
+                <img  class="w-100 img thumbnail" src="/banner/{{ .Params.banner }}">
+              </div>
+            </div>
+          </div>
+        {{ end }}
+              
+      </div>
+    </div>
+  {{ end }}
+{{ end }}        
+
 </div>
 </div>
 {{ end }}

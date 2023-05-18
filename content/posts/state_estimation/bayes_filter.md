@@ -5,7 +5,8 @@ draft: false
 banner: "bayes_filter.jpg"
 summary: "Bayes filter derives from `Bayes rule` and is the basis for all parametric and non-parametric probabilistic filtering algorithms."
 categories: []
-tags: []
+tags: ['math','bayes','filtering']
+math: true
 ---
 
 The famous filtering algorithms like `Kalman filter (KF)`, `Extended KF` and `particle filter (PF)` are all derivatives of Bayes filter. They either use gaussian distributions (think KF) or approximations of it (think EKF) or multimodal distributions (think PF) to represent the posterior. But essentially they are all Bayes filter in essence.

@@ -5,7 +5,7 @@ draft: false
 banner: "perception_system_design_tool.jpg"
 summary: "What should be the field of view, resolution, baseline of the cameras you choose for you perception system? What other parameters should you consider?"
 categories: []
-tags: []
+tags: ['camera','perception']
 ---
 
 Choosing the right parameters for your perception system is a hard problem. There are a plethora of parameters to consider. From the simple parameters like resolution to complex paramters like pixel density of objects, there are a wide range of these. Understanding each of these parameters and choosing appropriate values for those will dictate the success of perception system. The goal of this article is to introduce a web based tool we developed to play with these parameters and understand their effects. We will briefly discuss some of the important parameters and how to explore the design space using our tool. Click the button below to launch the tool in a separate tab on your browser.
