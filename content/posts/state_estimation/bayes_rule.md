@@ -7,6 +7,8 @@ type: "post"
 draft: false
 banner: "bayes_rule.jpg"
 summary: "Bayes rule is very famous. How do you make sense of it?"
+tags: ['bayes','basics']
+math: true
 ---
 I have read/heard different explanations for what Bayes rule means but never really grasped the simple intuitive meaning behind it until today. So I thought of writing about it.
 

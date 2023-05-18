@@ -5,7 +5,8 @@ draft: false
 banner: coordinate_transforms.jpg
 summary: "Coordinate transforms math is the most fundamental piece that needs to be understood in robotics if you want to use any sensors specifically cameras."
 categories: ["Core Concepts"]
-tags: ["Technical","Math"]
+tags: ['transforms']
+math: true
 ---
 One of the fundamental concepts in mobile robots is coordinate transforms. This is also the one which involves a lot of math. However the underlying concept is pretty simple and intuitive. The math part of it is also straight forward. The complexity arises from the fact that there are different conventions and different ways to arrive at the solution. As long as we stick to one representation, the solution should be straight forward.
 

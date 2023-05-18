@@ -1,4 +1,5 @@
 baseURL = "https://blog.buildrobotz.com"
+DefaultContentLanguage = "en"
 languageCode = "en-us"
 title = "BuildRobotZ"
 #googleAnalytics = "G-74QS6QP8PQ"
@@ -8,5 +9,18 @@ disqusShortname = "merrysprout"
 logo = "banner/BuildRobotZ-logo-lg-white.png"
 copyright = " www.buildrobotz.com"
 tagline = "Inspiring roboticist"
-banners="/content/banner/"
+bannerPath = "/banner/"
+readingTime = true
+wordCount = false
+staticMan = true
+enableRobotsTXT = true
+Paginate = 6
 
+
+comments = true
+socialShare = true
+PostsAsRows = false
+hideAuthor = true
+showRelatedPosts = true
+[Author]
+name = "Srini Vijay"

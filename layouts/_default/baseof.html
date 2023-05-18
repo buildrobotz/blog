@@ -24,9 +24,20 @@
         {{ partial "footer" . }}    
 
         {{ partial "bootstrap_includes" }}
-        {{ partial "math_includes" }}
 
-        <link rel="stylesheet" type="text/css" href="/css/style.css"  >
+        {{- if .Site.Params.useHLJS }}
+            <link rel="stylesheet" href="{{ "css/highlight.min.css" | absURL }}" />
+        {{- else -}}
+            <link rel="stylesheet" href="{{ "css/syntax.css" | absURL }}" />
+        {{- end -}}
+
+        <link disabled id="dark-mode-theme" rel="stylesheet" href="{{ "css/dark.css" | absURL }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ "css/main.css" | absURL }}" />
+        <link rel="stylesheet" type="text/css" href="{{ "css/codeblock.css" | absURL }}" />
+        
+        
+        
         <script src="/js/custom.js"></script>
         
     

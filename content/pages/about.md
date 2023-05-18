@@ -8,5 +8,5 @@ draft: false
 
 Hi, welcome to my blog. I am an engineer working at a Robotics lab. I build and program robots. You can reach me at srini@buildrobotz.com
 
-{{< figure src="/about/srini.jpg" width="100%" alt="Srini">}}
+{{< figure src="/images/srini.jpg" width="100%" alt="Srini">}}
 
