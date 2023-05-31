@@ -25,8 +25,14 @@
             </div>
         </div>
     </div> -->
-    {{ if ne .Title "About" }} 
-        <!-- Do not display banner or reading time for about page -->
+
+    {{ if eq .Type "pages" }}
+        <div class="row">
+            {{ .Content }}
+        </div>
+
+    {{ else }}  <!-- This is a blog post -->
+        <!-- Do not display banner or reading time for pages -->
         <div class="row">
             <div class="col-md-10">
                 <h2>{{ .Title }}</h2><small class="text-muted">{{ .ReadingTime }} mins</small>
@@ -38,74 +44,72 @@
             </div>
         </div>
 
-    {{ end }}
-
-    <div class="row">
-   
-      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
-        <article role="main" class="blog-post">
-          {{ .Content }}
-        </article>
-      </div>
-    </div>
-  
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-            <hr />
-        </div>
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
-        {{ if .Params.tags }}
-            <div class="blog-tags">
-                {{ range .Params.tags }}
-                <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
-                {{ end }}
-            </div>
-        {{ end }}
-    </div>
-   
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
-        {{ if $.Param "socialShare" }}
-            <section id="social-share">
-                <div class="list-inline footer-links">
-                    {{ partial "share-links" . }}
-                </div>
-            </section>
-        {{ end }}
-    </div>
-
-    {{ if not .Site.Params.hideAuthor }}
-
-        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
-            <div class="card">
-                <div class="row no-gutters">
-                    <div class="col-md-2 "> 
-                        <div class="card-body ">
-                            <img src="{{ "/img/bino-about-small.jpg" }}" class="img-responsive img-50 img-round" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-10">
-                        <div class="card-body p-1.1">
+        <!-- display the contents-->
+        <div class="row">
     
-                            <p class="p-0 m-0"><small class="text-muted ">Written By</small></p>
-                            <h5>
-                            {{ if .Params.author }}
-                                {{ .Params.author | safeHTML }}
-                            {{ else }}
-                                {{ .Site.Author.name | safeHTML }}
-                            {{ end }}
-                            </h5>
-                            <p class="card-text fs-1"></p>
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+            <article role="main" class="blog-post">
+            {{ .Content }}
+            </article>
+        </div>
+        </div>
+    
+
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <hr />
+            </div>
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+            {{ if .Params.tags }}
+                <div class="blog-tags">
+                    {{ range .Params.tags }}
+                    <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+
+
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+            {{ if $.Param "socialShare" }}
+                <section id="social-share">
+                    <div class="list-inline footer-links">
+                        {{ partial "share-links" . }}
+                    </div>
+                </section>
+            {{ end }}
+        </div>
+
+        {{ if not .Site.Params.hideAuthor }}
+
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-md-2 "> 
+                            <div class="card-body ">
+                                <img src="{{ "/img/bino-about-small.jpg" }}" class="img-responsive img-50 img-round" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="card-body p-1.1">
+        
+                                <p class="p-0 m-0"><small class="text-muted ">Written By</small></p>
+                                <h5>
+                                {{ if .Params.author }}
+                                    {{ .Params.author | safeHTML }}
+                                {{ else }}
+                                    {{ .Site.Author.name | safeHTML }}
+                                {{ end }}
+                                </h5>
+                                <p class="card-text fs-1"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    {{ end }}
-  
+        {{ end }}
         
-  
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
-        {{ if ne .Type "page" }}
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
             <ul class="list-group list-group-horizontal" style="flex-direction: row">
                 {{ if .PrevInSection }}
                     <li class="list-group-item b-0">
@@ -125,70 +129,63 @@
                     </li>
                 {{ end }}
             </ul>
-        {{ end }}
-    </div>
-  
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4"> 
-    </div>
-  
-    <div class="">
-        <div class="container">
-            {{ if .Site.Params.showRelatedPosts }}
-
-                <div class="row">
-                    {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-                        {{ $.Scratch.Set "has_related" true }}
-                    {{ end }}
-
-                    {{ if $.Scratch.Get "has_related" }}
-                        <h3>Read more</h3>
-                        <hr />
-
-                        {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
-                        {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-            
-                            {{ partial "post_preview.html" .}}
-                        {{ end }} 
-
-                    {{ end }}
-                </div>
-            {{ end }}
         </div>
-  
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
-    
-            {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (and .Site.Params.comments (ne .Type "page"))) }}
-                {{ if .Site.DisqusShortname }}
-                    {{ if .Site.Params.delayDisqus }}
-                        <div class="disqus-comments">
-                            <button id="show-comments" class="btn btn-default" type="button">{{ i18n "show" }} 
-                            <span class="disqus-comment-count" data-disqus-url="{{ trim .Permalink "/" }}">{{ i18n "comments" }}</span></button>
-                            <div id="disqus_thread"></div>
-    
-                            <script type="text/javascript">
-                                var disqus_config = function () {
-                                this.page.url = '{{ trim .Permalink "/" }}';
-                                };
-                            </script>
-                        </div>
-                    {{ else }}
-                        <div class="disqus-comments">
-                            {{ template "_internal/disqus.html" . }}
-                        </div>
+
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4"> 
+        </div>
+
+        <div class="">
+            <div class="container">
+                {{ if .Site.Params.showRelatedPosts }}
+
+                    <div class="row">
+                        {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+                            {{ $.Scratch.Set "has_related" true }}
+                        {{ end }}
+
+                        {{ if $.Scratch.Get "has_related" }}
+                            <h3>Read more</h3>
+                            <hr />
+
+                            {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
+                            {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+                
+                                {{ partial "post_preview.html" .}}
+                            {{ end }} 
+
+                        {{ end }}
+                    </div>
+                {{ end }}
+            </div>
+        
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+        
+                {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (and .Site.Params.comments (ne .Type "pages"))) }}
+                    {{ if .Site.DisqusShortname }}
+                        {{ if .Site.Params.delayDisqus }}
+                            <div class="disqus-comments">
+                                <button id="show-comments" class="btn btn-default" type="button">{{ i18n "show" }} 
+                                <span class="disqus-comment-count" data-disqus-url="{{ trim .Permalink "/" }}">{{ i18n "comments" }}</span></button>
+                                <div id="disqus_thread"></div>
+        
+                                <script type="text/javascript">
+                                    var disqus_config = function () {
+                                    this.page.url = '{{ trim .Permalink "/" }}';
+                                    };
+                                </script>
+                            </div>
+                        {{ else }}
+                            <div class="disqus-comments">
+                                {{ template "_internal/disqus.html" . }}
+                            </div>
+                        {{ end }}
                     {{ end }}
                 {{ end }}
-            {{ end }}
+            </div>
         </div>
-    </div>
 
-    <!-- old social -->
-    <!--
-    <div class="row">
-        <div class="col-md-12 col-sm-6">
-        {{ partial "social" . }}
-    </div>
-    -->
-<hr>
+        <hr>
+    {{ end }}
 
 {{ end }}

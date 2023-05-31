@@ -10,7 +10,7 @@ tags: ['camera','perception']
 
 Choosing the right parameters for your perception system is a hard problem. There are a plethora of parameters to consider. From the simple parameters like resolution to complex paramters like pixel density of objects, there are a wide range of these. Understanding each of these parameters and choosing appropriate values for those will dictate the success of perception system. The goal of this article is to introduce a web based tool we developed to play with these parameters and understand their effects. We will briefly discuss some of the important parameters and how to explore the design space using our tool. Click the button below to launch the tool in a separate tab on your browser.
 
-{{< launch_button "/tools/perception_design/" "Perception Design Tool" >}}
+{{< launch_button "/pages/perception_design_tool/" "Perception Design Tool" >}}
 
 ## Tool
 The figure below shows how the tool will look like and briefly goes over each section. This tool helps you to create cameras, change their parameters, create basic shapes. 
