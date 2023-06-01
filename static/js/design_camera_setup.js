@@ -1,5 +1,3 @@
-//import { GUI } from 'dat.gui'
-
 //Coordinate frame for three.js
 //Y up Z back and x right
 var container = null;
@@ -145,7 +143,6 @@ function create_canvas() {
     container.appendChild(canvas);
 
     renderer.setPixelRatio( window.devicePixelRatio );
-    //renderer.setSize( window.innerWidth, window.innerHeight*0.9 );
 
     //this block of code makes the canvas to stretch the whole window
     // var ctx = canvas.getContext('2d');
@@ -190,19 +187,23 @@ function add_controls() {
     //add button and controls for camera
     cameras_ctrl = gui.addFolder('Cameras');
     cameras_ctrl.add(actions,'add_camera_action').name('Add Camera'); 
+    cameras_ctrl.open();
 
     //add button and controls for laser
     lasers_ctrl = gui.addFolder('Lasers');
     lasers_ctrl.add(actions,'add_laser_action').name('Add Laser');
+    lasers_ctrl.open();
 
     //add button and controls for object
     objects_ctrl = gui.addFolder('Objects');
     objects_ctrl.add(actions,'add_object_action').name('Add Object');
+    objects_ctrl.open();
 
     //add button and controls for checkerboard
     checkerboards_ctrl = gui.addFolder('Checkerboards');
     checkerboards_ctrl.add(actions,'add_checkerboard_action').name('Add Checkerboard');
-
+    checkerboards_ctrl.open();
+    
     //add controls for robot
     robots_ctrl = gui.addFolder('Robot');
 

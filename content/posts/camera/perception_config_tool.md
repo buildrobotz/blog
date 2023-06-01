@@ -8,19 +8,23 @@ categories: []
 tags: ['camera','perception']
 ---
 
-Choosing the right parameters for your perception system is a hard problem. There are a plethora of parameters to consider. From the simple parameters like resolution to complex paramters like pixel density of objects, there are a wide range of these. Understanding each of these parameters and choosing appropriate values for those will dictate the success of perception system. The goal of this article is to introduce a web based tool we developed to play with these parameters and understand their effects. We will briefly discuss some of the important parameters and how to explore the design space using our tool. Click the button below to launch the tool in a separate tab on your browser.
+Choosing the right parameters for your perception system is a hard problem. There are a plethora of parameters to consider. From the simple parameters like resolution to complex parameters like pixel density of objects, there are a wide range of these. Understanding each of these parameters and choosing appropriate values for those will dictate the success of perception system. The goal of this article is to introduce a web based tool we developed to play with these parameters and understand their effects. We will briefly discuss some of the important parameters and how to explore the design space using our tool. Click the button below to launch the tool in a separate tab on your browser.
 
 {{< launch_button "/pages/perception_design_tool/" "Perception Design Tool" >}}
 
 ## Tool
 The figure below shows how the tool will look like and briefly goes over each section. This tool helps you to create cameras, change their parameters, create basic shapes. 
 
-{{< figure src="../tool_overview.jpg" widht="100%" >}}
+{{< figure src="/images/perception-tool-overview.jpg" widht="100%" >}}
 
-The screen is split vertically into two sections. The left section shows the different `camera views`. The tool starts with a single camera. You can see how the world looks like from that camera. The right section of the screen displays the `world view`. Here you can see the cameras, objects, checkerboards and everything else you created using this tool. You can pan, zoom and navigate around in this view using your mouse controls. The buttons in the top center are called `Action Buttons` and you can use them to create cameras, objects and perform certain actions like saving the image views. Finally the `controls` in the top right corner helps you to change parameters like field-of-view, position, size, rotations, etc. This is how we will manipulate the different entities in the world view. 
+The screen is split vertically into two sections. The left section shows the different `camera views`. You can see how the world looks like from that camera. The right section of the screen displays the `world view`. Here you can see the cameras, objects, checkerboards and everything else you created using this tool. You can pan, zoom and navigate around in this view using your mouse controls. Finally the `controls` on right (corner or below) helps you to change parameters like field-of-view, position, size, rotations, etc. This is how we will manipulate the different entities in the world view. `Controls` also has `Action Buttons` which you can use to create cameras, objects and perform certain actions like saving the image views. 
 
-## Expanded View
-The `world view` can be expanded to cover the full-screen by pressing on the `Expand View` button. In this mode there wil be more space to view and manipulate the objects. The cameras are still there but hidden.  You can get them back by pressing the `Show Camera Views` button. 
+Let us now look at the `controls` section in detail. 
+{{< figure src="/images/perception-tool-controls.jpg" widht="100%" >}}
+
+
+## Toggle View
+The `world view` can be expanded to cover full-screen by pressing on the `Toggle View` button. In this mode there wil be more space to view and manipulate the objects. The cameras are still there but hidden.  You can get them back by pressing the `Toggle View` button again. 
 
 ## Cameras
 To create a camera press the `Add Camera` button. Creating and manipulating cameras is one of the primary goal of this tool. The `Add Camera` action first adds a camera to the world view. It also adds a view of the camera in the `Camera View` section. Finally it adds the camera controls to the `Controls -> Cameras` section. Each new camera gets an index added to it.
