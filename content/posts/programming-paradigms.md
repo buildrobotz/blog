@@ -1,6 +1,6 @@
 ---
 title: "Programming Paradigms - Procedural vs Object-oriented vs Functional"
-date: 2022-06-22T12:00:00-00:00
+date: 2022-06-22
 draft: false
 banner: 'programming-paradigms.jpg'
 summary: "Do you not know which programming language to use for your new robotic project? Are there benefits choosing one over the other?"
