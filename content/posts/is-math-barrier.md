@@ -3,7 +3,7 @@ title: "Is Math a Barrier for Learning Robotics"
 date: 2022-06-29
 draft: false
 banner: 'is-math-barrier.jpg'
-summary: "Are you scared of math and anxious when learning it?"
+summary: "Are you scared of math and anxious when learning it? Are you worried that it will impede you from learning robotics?"
 math: false
 categories: ['aspiring']
 tags: ['math','learning']
