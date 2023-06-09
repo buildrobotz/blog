@@ -123,7 +123,8 @@ function main() {
     create_robot();
 
     //create a sample camera to start working
-    //create_camera_views(default_hfov,default_aspect,0.1,1000,[cam_pos_incre,1,0],[cam_pos_incre,0,-5]);
+    //create_camera_views(get_default_camera());
+    //add_object(get_default_object());
 
 }
 
@@ -252,8 +253,8 @@ function create_default_view() {
     const near = 0.1;
     const far = 1000;
     default_view = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    default_view.position.y = 20;
-    default_view.position.z = 5;
+    default_view.position.y = 2;
+    default_view.position.z = 3;
     //default_view.position.set( <X> , <Y> , <Z> );
     default_view.lookAt(0,0,0);
     renderer.render(scene,default_view);
