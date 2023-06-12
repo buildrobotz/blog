@@ -1,5 +1,5 @@
 ---
-title: "Design your Perception System"
+title: "Perception Design Tool"
 date: 2020-06-02T21:54:28-04:00
 draft: false
 banner: "perception_system_design_tool.jpg"
