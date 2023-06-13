@@ -2,8 +2,7 @@
 title: "MicroPython"
 date: 2022-01-15
 draft: false
-banner: 'tech-note.jpg'
-summary: "Can we program microcontrollers using python? Let us learn how to do it."
+summary: "Program microcontrollers using Python."
 math: false
 categories: ['beginner']
 tags: ['programming','python','ESP32']
