@@ -29,22 +29,36 @@
             </div>
         </div>
     </div> -->
-
+        
+    <!-- Do not display banner or reading time for pages -->
     {{ if eq .Type "pages" }}
         <div class="row">
             {{ .Content }}
         </div>
 
-    {{ else }}  <!-- This is a blog post -->
-        <!-- Do not display banner or reading time for pages -->
+    {{ else  }}  <!-- This is a blog post -->
         <div class="row">
             <div class="col-md-10">
+                {{ if .Params.folds }} 
+                <h2>{{ .Title }}</h2><small class="text-muted">{{ .Params.folds }} folds</small>
+                {{ else }}
                 <h2>{{ .Title }}</h2><small class="text-muted">{{ .ReadingTime }} mins</small>
+                {{ end }}
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10">
-                <img src="{{ .Site.Params.bannerPath }}{{ .Params.banner }}" class="img-fluid" alt="{{ .Params.banner }}"> <hr>        
+                {{ if .Params.youtubeId }}
+                <div>
+                    <div style="position:relative;padding-top:56.25%;">
+                      <iframe src="https://www.youtube.com/embed/{{ .Params.youtubeId }}" frameborder="0" allowfullscreen
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+                <hr>        
+                {{ else if .Params.banner }}
+                    <img src="{{ .Site.Params.bannerPath }}{{ .Params.banner }}" class="img-fluid" alt="{{ .Params.banner }}"> <hr>        
+                {{ end }}
             </div>
         </div>
 
