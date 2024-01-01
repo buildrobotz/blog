@@ -9,9 +9,9 @@ To create a new paperplanes article, follow the steps below.
 ## Create article from template
 From the top level directory (blog directory), execute the following command
 ```
-hugo new paperplanes/<name>.md
+hugo new paperplanes/<name>/<name>.md
 ```
-This command picks up the template from archetypes and fills up a file called `<name>.md` in the main paperplanes folder. Create a new folder with the same name and move the file to that folder. 
+This command picks up the template from archetypes and fills up a file called `<name>.md` in the main paperplanes folder.  
 
 ## Crop and compress thumbnail
 ```
