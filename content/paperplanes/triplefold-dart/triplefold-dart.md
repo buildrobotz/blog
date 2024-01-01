@@ -8,7 +8,7 @@ summary: "Triplefold Dart"
 look: "minimal"
 categories: ['paperplanes']
 tags: ['glider','paperplanes','papercraft','diycrafts']
-folds: 14
+folds: 13
 youtubeId: L97sjk_sjyg
 ---
 

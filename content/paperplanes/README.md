@@ -21,6 +21,7 @@ convert ../../../../Video\ Challenge/<source-name>/thumbnail.webp -crop 640x360+
 ## Convert screenshots to webp and create thumbnails
 Create a folder called `frames` inside the newly created directory and execute the following commands replacing the name of the source folder.
 ```
+mkdir frames
 convert ../../../../Video\ Challenge/<source-name>/frames/Screenshot*.png -crop 1316x1080+300+0 frames/step%03d.webp
 convert frames/step*.webp -resize 12% frames/thumbnail%03d.webp
 ```

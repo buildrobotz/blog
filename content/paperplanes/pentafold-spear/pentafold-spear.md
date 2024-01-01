@@ -8,8 +8,8 @@ summary: "Pentafold Spear"
 look: "minimal"
 categories: ['paperplanes']
 tags: ['glider','paperplanes','papercraft','diycrafts']
-folds: 20
-youtubeId: 
+folds: 19
+youtubeId: qTAP6RWzD9eY
 ---
 
 
