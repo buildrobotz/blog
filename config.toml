@@ -3,7 +3,8 @@ DefaultContentLanguage = "en"
 languageCode = "en-us"
 title = "BuildRobotZ"
 #googleAnalytics = "G-74QS6QP8PQ"
-disqusShortname = "merrysprout"
+#disqusShortname = "merrysprout"
+disqusShortname = "buildrobotz"
 
 [params]
 logo = "banner/BuildRobotZ-logo-lg-white.png"
