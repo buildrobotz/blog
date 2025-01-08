@@ -1,4 +1,4 @@
-baseURL = "https://buildrobotz.com"
+baseURL = "https://blog.buildrobotz.com"
 DefaultContentLanguage = "en"
 languageCode = "en-us"
 title = "BuildRobotZ"
