@@ -1,0 +1,21 @@
+<!-- <figure>
+    <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}">
+    {{ if .Get "caption" }}
+    <figcaption style="text-align: center; font-style: italic; font-size: 0.9em;">
+      {{ .Get "caption" }}
+    </figcaption>
+    {{ end }}
+  </figure> -->
+  
+  <figure>
+    <img 
+      src="{{ .Get "src" }}" 
+      alt="{{ .Get "alt" }}" 
+      style="width: {{ with .Get "width" }}{{ . }}{{ else }}100%{{ end }};">
+    {{ if .Get "caption" }}
+    <figcaption style="text-align: center; font-style: italic; font-size: 0.9em;">
+      {{ .Get "caption" }}
+    </figcaption>
+    {{ end }}
+  </figure>
+  
