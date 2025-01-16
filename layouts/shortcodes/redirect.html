@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Define the redirection map as a JSON object
+        const redirectMap = {{ .Inner | safeJS }};
+        
+        // Define a default fallback URL (redirect here if no valid parameter is found)
+        const defaultRedirectUrl = "{{ .Get 1 }}";
+
+        // Function to get the value of a query parameter by name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Perform the redirection based on the query parameter
+        document.addEventListener('DOMContentLoaded', () => {
+            const paramKey = "{{ .Get 0 }}"; // The query parameter to check
+            const paramValue = getQueryParam(paramKey);
+
+            if (paramValue && redirectMap[paramValue]) {
+                // Redirect to the mapped URL
+                window.location.href = redirectMap[paramValue];
+            } else {
+                // Redirect to the default URL if no or invalid parameter is provided
+                window.location.href = defaultRedirectUrl;
+            }
+        });
+    </script>
+</head>
+<body>
+    <p id="message">Redirecting...</p>
+    <noscript>
+        <p>JavaScript is required for redirection. Please enable it in your browser.</p>
+    </noscript>
+</body>
+</html>
