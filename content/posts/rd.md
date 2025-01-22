@@ -1,7 +1,7 @@
 ---
 title: "Rd"
 date: 2025-01-16T11:05:05-05:00
-draft: false
+draft: true
 banner: "placeholder.jpg"
 summary: ""
 categories: []
@@ -15,3 +15,5 @@ tags: []
     "v3": "https://buildrobotz.substack.com/p/managing-faults-in-field-robotics"
 }
 {{< /redirect >}}
+
+Flip the draft flag to false to make this active.
